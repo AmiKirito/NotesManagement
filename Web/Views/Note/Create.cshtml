@@ -1,0 +1,25 @@
+﻿@model CreateNoteViewModel
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+
+<form class="mt-2" asp-action="Create" asp-controller="Note" method="post">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">@Localizer["FormTitle"]</span>
+        </div>
+        <input type="text" class="form-control" placeholder="@Localizer["FormTitlePlaceholder"]" asp-for="@Model.Title" />
+        <span asp-validation-for="@Model.Title" class="text-danger"></span>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">@Localizer["FormContent"]</span>
+        </div>
+        <textarea type="text" class="form-control" placeholder="@Localizer["FormContentPlaceholder"]" asp-for="@Model.Content"></textarea>
+        <span asp-validation-for="@Model.Content" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-outline-primary" value="@Localizer["CreateBtn"]"/>
+</form>
+

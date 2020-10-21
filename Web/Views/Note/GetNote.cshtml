@@ -1,0 +1,16 @@
+﻿@model NoteViewModel 
+@inject IViewLocalizer Localizer
+
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+
+<div class="card mt-4" style="width: 25rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Localizer["Id"]:@Model.Id</h6>
+        <p class="card-text">@Model.Content</p>
+        <a asp-action="Update" asp-controller="Note" asp-route-id="@Model.Id" class="card-link">@Localizer["Update"]</a>
+        <a asp-action="Delete" asp-controller="Note" asp-route-id="@Model.Id" class="card-link text-danger">@Localizer["Delete"]</a>
+    </div>
+</div>

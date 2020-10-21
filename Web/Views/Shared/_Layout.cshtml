@@ -1,0 +1,38 @@
+﻿@inject IViewLocalizer Localizer
+<html>
+<head>
+    <link rel="stylesheet" href="@Url.Content("~/lib/bootstrap-4.3.1/css/bootstrap.min.css")" />
+    <title>@ViewBag.Title</title>
+</head>
+    <body>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a asp-action="GetNotes" asp-controller="Note" class="btn btn-light">@Localizer["Notes"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-action="Create" asp-controller="Note" class="nav-link text-light">@Localizer["Create"]</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                                @await Html.PartialAsync("_SelectLanguagePartial")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+                @RenderBody()
+        </div>
+        @if (IsSectionDefined("Scripts"))
+        {
+            @RenderSection("Scripts", required: true)
+        }
+    </body>
+</html>

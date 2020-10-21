@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>E2E_Test</RootNamespace>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="Selenium.Support" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="SpecFlow" Version="3.4.14" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.4.14" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.4.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infrastructure\ChromeDriver\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Infrastructure\ChromeDriver\chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
